@@ -265,4 +265,29 @@
       <div>
         <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#1FE39B;margin-bottom:26px;">/ 04 — Let's talk</div>
         <h2 style="font-size:clamp(40px,5vw,72px);line-height:0.92;font-weight:800;letter-spacing:-0.035em;color:#ECF5F0;margin:0 0 22px 0;">Let's automate<br>your operation.</h2>
-        <p style="font-size:17px;line-height:1.55;color:#9DB1A7;max-width:430px;margin:0;">Tell me what's eating your week. I'll reply within one business day with whether automation can help 
+        <p style="font-size:17px;line-height:1.55;color:#9DB1A7;max-width:430px;margin:0;">Tell me what's eating your week. I'll reply within one business day with whether automation can help and a rough idea of cost.</p>
+      </div>
+      <!-- Contact form posts to Formspree (endpoint mvzjpvyz). -->
+      <form action="https://formspree.io/f/mvzjpvyz" method="POST" style="display:flex;flex-direction:column;gap:12px;width:100%;">
+        <input class="fs-input" type="text" name="name" placeholder="Your name" required>
+        <input class="fs-input" type="email" name="email" placeholder="Your email" required>
+        <input class="fs-input" type="text" name="tools" placeholder="Your tools (PMS, pricing, channels) — optional">
+        <textarea class="fs-input" name="message" placeholder="What would you like to automate?" required></textarea>
+        <input type="hidden" name="_subject" value="New enquiry from flowstead.co.uk">
+        <button class="fs-btn" type="submit">Send message →</button>
+        <a href="mailto:hello@flowstead.co.uk" style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.06em;color:#8DA499;text-decoration:none;margin-top:4px;">Prefer email? hello@flowstead.co.uk ↗</a>
+      </form>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer style="background:#06100D;">
+    <div class="wrap footer-row" style="max-width:1360px;margin:0 auto;padding:30px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(236,245,240,0.10);">
+      <div style="display:flex;align-items:baseline;gap:1px;font-weight:800;font-size:16px;letter-spacing:-0.015em;color:#ECF5F0;"><span style="color:#1FE39B;">/</span><span>flowstead</span><span style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:9px;color:#7E9389;margin-left:4px;align-self:flex-start;">®</span></div>
+      <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#5E7268;">© 2026 — Flowstead · Built for property managers</div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
