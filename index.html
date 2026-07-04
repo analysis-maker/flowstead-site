@@ -317,10 +317,9 @@
         <div style="font-size:23px;font-weight:700;letter-spacing:-0.01em;color:#ECF5F0;margin-bottom:8px;">Not ready to talk?</div>
         <div style="font-size:16px;color:#8DA499;line-height:1.5;max-width:440px;">Get the free 10-point STR automation checklist: the exact tasks worth automating first. Flowstead will email it over.</div>
       </div>
-      <!-- Checklist request posts to Formspree (same endpoint, tagged in subject). -->
-      <form action="https://formspree.io/f/mvzjpvyz" method="POST" style="display:flex;gap:10px;width:100%;flex-wrap:wrap;">
+      <!-- Checklist opt-in posts to the n8n workflow, which emails the checklist automatically. -->
+      <form action="https://professionalholidayhomes.app.n8n.cloud/webhook/flowstead-checklist" method="POST" style="display:flex;gap:10px;width:100%;flex-wrap:wrap;">
         <input class="fs-input" type="email" name="email" placeholder="Your email" required style="flex:1;min-width:200px;">
-        <input type="hidden" name="_subject" value="Checklist request via flowstead.co.uk">
         <button class="fs-btn" type="submit" style="width:auto;flex:none;">Send me the checklist →</button>
       </form>
     </div>
