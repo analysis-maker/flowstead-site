@@ -24,19 +24,24 @@
 <meta name="twitter:description" content="Automate guest messaging, booking sync and owner reports. Book a free automation audit, no obligation, keep the map either way.">
 <meta name="twitter:image" content="https://flowstead.co.uk/og-image.png">
 
-<!-- ============ ANALYTICS (optional) ============
-     Pick ONE, create the account, paste your ID/token, then move the line ABOVE this comment so it loads.
-
-     1) Cloudflare Web Analytics  (FREE, privacy-friendly, no cookie banner needed):
-        <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token":"YOUR_TOKEN"}'></script>
-
-     2) Plausible  (paid ~£7/mo, privacy-friendly, no cookie banner needed):
-        <script defer data-domain="flowstead.co.uk" src="https://plausible.io/js/script.js"></script>
-
-     3) Google Analytics 4  (free, but uses cookies, so you must add a consent banner in the UK/EU):
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-        <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-XXXXXXXXXX');</script>
-============================================================ -->
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0T3JKN5LSL"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0T3JKN5LSL');
+</script>
+<!-- Fire a lead conversion when a Calendly audit booking completes -->
+<script>
+  window.addEventListener('message', function (e) {
+    if (e.origin === 'https://calendly.com' && e.data && typeof e.data.event === 'string' && e.data.event === 'calendly.event_scheduled') {
+      gtag('event', 'book_audit', { event_category: 'lead', event_label: 'calendly_audit_booking' });
+      // Google Ads conversion — uncomment and add your conversion ID/label once Google Ads is set up:
+      // gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXXX/xxxxxxxxxxxxxxxxxx' });
+    }
+  });
+</script>
 
 <style>
   @keyframes auroraDrift{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.8}50%{transform:translate3d(48px,24px,0) scale(1.16);opacity:1}}
