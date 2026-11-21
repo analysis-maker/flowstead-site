@@ -28,7 +28,7 @@
 <meta name="theme-color" content="#F4F4F1">
 <link rel="preload" href="fonts/InterTight.woff2" as="font" type="font/woff2" crossorigin>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"Flowstead","url":"https://flowstead.co.uk/","email":"hello@flowstead.co.uk","areaServed":["GB","AU","US","EU"],"founder":{"@type":"Person","name":"Ian McDermott"},"description":"AI receptionists, AI email assistants and n8n automations for holiday-let and property managers."}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Flowstead","url":"https://flowstead.co.uk/","email":"hello@flowstead.co.uk","areaServed":["GB","AU","US","EU"],"founder":{"@type":"Person","name":"Ian McDermott"},"description":"AI receptionists, AI email assistants and n8n automations for holiday-let and property managers.","sameAs":["https://www.upwork.com/freelancers/~01cb15502ef4d3cd4f"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Flowstead fixed-price services","itemListElement":[{"@type":"Offer","name":"AI phone receptionist: Starter","price":"149","priceCurrency":"GBP","description":"Voice agent with your FAQs and greeting, call summaries by email."},{"@type":"Offer","name":"AI phone receptionist: Standard","price":"299","priceCurrency":"GBP","description":"Starter plus an n8n post-call pipeline to a sheet or CRM, and urgent-call alerts."},{"@type":"Offer","name":"AI phone receptionist: Premium","price":"449","priceCurrency":"GBP","description":"Standard plus PMS or helpdesk hand-off and a month of tuning from real calls."},{"@type":"Offer","name":"AI inbox assistant: Starter","price":"149","priceCurrency":"GBP","description":"AI drafts replies to your top 10 guest questions for you to approve."},{"@type":"Offer","name":"AI inbox assistant: Standard","price":"299","priceCurrency":"GBP","description":"Auto-send for safe topics, auto-close, and hand-off to a person with context."},{"@type":"Offer","name":"AI inbox assistant: Premium","price":"449","priceCurrency":"GBP","description":"Standard plus booking data from your PMS, so replies know the stay."},{"@type":"Offer","name":"n8n workflow: Fix","price":"99","priceCurrency":"GBP","description":"Diagnose and fix one broken n8n workflow, with notes on what went wrong."},{"@type":"Offer","name":"n8n workflow: Build","price":"199","priceCurrency":"GBP","description":"One new workflow, up to 3 apps, tested and documented."},{"@type":"Offer","name":"n8n workflow: System","price":"349","priceCurrency":"GBP","description":"A small connected system of up to 3 workflows, with monitoring."},{"@type":"Offer","name":"Look-after plan","price":"250","priceCurrency":"GBP","description":"Monitoring, fixes and one small improvement each month. Cancel any time.","priceSpecification":{"@type":"UnitPriceSpecification","price":"250","priceCurrency":"GBP","unitText":"MONTH"}},{"@type":"Offer","name":"Free automation audit","price":"0","priceCurrency":"GBP","description":"A 20-minute call, then a short written map of the three automations that would save you the most hours."}]}}
 </script>
 <!-- Google Consent Mode v2: denied until the visitor accepts (kept from the current site) -->
 <script>
@@ -440,14 +440,11 @@
 
     <div class="magnet card">
       <div><h3>Not ready to talk?</h3><p>Get the free 10-point checklist: the holiday-let tasks worth automating first.</p></div>
-      <!-- Posts to Ian's OWN n8n (placeholder webhook, workflow not built yet). Never point this at an employer's instance. -->
-      <form id="checklist-form" action="https://flowstead.app.n8n.cloud/webhook/flowstead-checklist" method="POST">
-        <label class="sr" for="cl-email">Email address</label>
-        <input id="cl-email" type="email" name="email" placeholder="you@yourbusiness.co.uk" autocomplete="email" required>
-        <input type="text" name="company_website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <button class="btn btn-dark" type="submit">Send me the checklist</button>
-        <p class="form-msg" id="cl-msg" role="status"></p>
-      </form>
+      <!-- Checklist email signup paused until the n8n workflow is built; direct download instead. -->
+      <div class="magnet-cta">
+        <a class="btn btn-dark" id="cl-download" href="checklist.pdf" download>Download the checklist (PDF)</a>
+        <a class="link" href="mailto:hello@flowstead.co.uk?subject=Checklist">Or ask for it by email</a>
+      </div>
     </div>
   </div>
 </section>
@@ -457,7 +454,7 @@
 <footer class="footer">
   <div class="wrap footer-row">
     <div><a class="logo" href="#top">Flowstead</a><p>AI receptionists and automations for holiday-let &amp; property managers.</p></div>
-    <ul><li><a href="#build">What I build</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#maya">Maya demo</a></li><li><a href="mailto:hello@flowstead.co.uk">hello@flowstead.co.uk</a></li></ul>
+    <ul><li><a href="#build">What I build</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#maya">Maya demo</a></li><li><a href="mailto:hello@flowstead.co.uk">hello@flowstead.co.uk</a></li><li><a href="privacy.html">Privacy</a></li></ul>
     <p class="copy">© 2026 Flowstead · Ian McDermott · United Kingdom</p>
   </div>
 </footer>
