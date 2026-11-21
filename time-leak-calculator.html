@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Holiday-let time leak calculator · Flowstead</title>
+<meta name="description" content="A free calculator for holiday-let managers: estimate guest-message and call hours, and what a cautious share of that routine work is worth. Nothing is stored or sent.">
+<link rel="canonical" href="https://flowstead.co.uk/time-leak-calculator.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="favicon-180x180.png">
+<meta name="theme-color" content="#F4F4F1">
+<link rel="preload" href="fonts/InterTight.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Google Consent Mode v2: denied until the visitor accepts (kept from the current site) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+  try{if(localStorage.getItem('fs_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0T3JKN5LSL"></script>
+<script>gtag('js',new Date());gtag('config','G-0T3JKN5LSL');</script>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.tl{padding-top:clamp(28px,4vw,56px)}
+.tl h1{font-size:clamp(34px,4.4vw,56px);max-width:16ch}
+.tl-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:28px}
+.tl-card{padding:clamp(20px,3vw,28px)}
+.tl-fields{display:grid;gap:16px;margin:0}
+.tl-field{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.tl-field span{min-width:0}
+.tl-field small{display:block;color:var(--muted);font-size:13px;margin-top:2px}
+.tl-field input[type=number]{width:6.5rem;flex:none;font:16px var(--font);padding:12px 12px;border-radius:12px;border:1px solid var(--line);background:var(--soft);color:var(--ink)}
+.tl-field input[type=number]:focus{outline:2px solid var(--accent);outline-offset:1px;background:#fff}
+.tl-card .calc{padding:0;background:none;box-shadow:none}
+.tl-card .calc label{margin:0}
+.tl-card .calc input[type=range]{margin:8px 0 0}
+.tl-results{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.tl-results div{background:var(--soft);border-radius:14px;padding:14px;min-width:0}
+.tl-results .accent{background:var(--accent);color:#fff}
+.tl-results .accent small{color:#D7EBE3}
+.tl-results small{display:block;font-size:12px;color:var(--faint)}
+.tl-results b{display:block;font-size:clamp(26px,3vw,34px);font-weight:500;letter-spacing:-.03em;line-height:1.1;margin-top:4px;font-variant-numeric:tabular-nums}
+.tl-formulas{margin-top:16px;padding:clamp(20px,3vw,28px)}
+.tl-formulas h2{font-size:22px;max-width:none}
+.tl-formulas ul{margin:12px 0 0;padding-left:18px}
+.tl-formulas li{margin:6px 0;color:var(--ink-2)}
+.tl-note{color:var(--muted);font-size:15px;margin-top:12px;max-width:62em}
+.tl-cta{margin-top:22px}
+@media (max-width:860px){
+  .tl-grid{grid-template-columns:minmax(0,1fr)}
+  .tl-field{align-items:flex-start}
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="wrap nav-row">
+    <a class="logo" href="/" aria-label="Flowstead home">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#111"/><path d="M8 18.5V7.5h9M8 13h6.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="18.5" cy="18" r="2" fill="#0B7A55"/></svg>
+      Flowstead
+    </a>
+    <nav aria-label="Main">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links">
+        <li><a href="/#build">What I build</a></li>
+        <li><a href="/#maya">Maya demo</a></li>
+        <li><a href="/#results">Results</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/#about">About</a></li>
+        <li class="nav-cta-li"><a class="btn btn-dark btn-sm" href="/#audit">Book a free audit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="section tl">
+  <div class="wrap">
+    <p class="kicker">Free tool</p>
+    <h1>Holiday-let time leak calculator</h1>
+    <p class="sub">A rough picture of the guest messages and calls your team handles by hand, and what comes back if a cautious share of the routine work is handled automatically. The sums run in your browser. Nothing is stored or sent.</p>
+
+    <div class="tl-grid">
+      <form class="card tl-card" id="tl-form">
+        <div class="tl-fields">
+          <label class="tl-field" for="tl-bookings"><span>Bookings per month</span><input id="tl-bookings" type="number" min="0" step="1" value="40" inputmode="numeric"></label>
+          <label class="tl-field" for="tl-threads"><span>Message threads per booking<small>Step 0.5</small></span><input id="tl-threads" type="number" min="0" step="0.5" value="2" inputmode="decimal"></label>
+          <label class="tl-field" for="tl-mins"><span>Minutes per thread</span><input id="tl-mins" type="number" min="0" step="1" value="8" inputmode="numeric"></label>
+          <label class="tl-field" for="tl-calls"><span>Calls per week</span><input id="tl-calls" type="number" min="0" step="1" value="20" inputmode="numeric"></label>
+          <label class="tl-field" for="tl-callmins"><span>Minutes per call, including notes</span><input id="tl-callmins" type="number" min="0" step="1" value="5" inputmode="numeric"></label>
+          <label class="tl-field" for="tl-rate"><span>Cost of an hour of staff time (£)<small>Placeholder — change this</small></span><input id="tl-rate" type="number" min="0" step="1" value="15" inputmode="decimal"></label>
+          <div class="calc">
+            <label for="tl-share"><span>Share of routine work handled automatically</span><output id="tl-share-out">40%</output></label>
+            <input id="tl-share" type="range" min="10" max="60" step="5" value="40">
+          </div>
+        </div>
+      </form>
+
+      <div class="card tl-card" aria-live="polite">
+        <p class="kicker">Each month</p>
+        <div class="tl-results">
+          <div><small>Message hours</small><b><span id="tl-msg">10.7</span> h</b></div>
+          <div><small>Call hours</small><b><span id="tl-call">7.2</span> h</b></div>
+          <div><small>Hours of admin</small><b><span id="tl-admin">17.9</span> h</b></div>
+          <div class="accent"><small>Hours back</small><b><span id="tl-back">7.2</span> h</b></div>
+          <div><small>Worth per month</small><b id="tl-month">£107</b></div>
+          <div><small>Worth per year</small><b id="tl-year">£1,288</b></div>
+          <div><small>Working days back</small><b><span id="tl-days">0.95</span></b></div>
+        </div>
+        <p class="tl-note">Working days use a 7.5-hour day. Hours are shown to one decimal place. Pounds are rounded to the nearest pound.</p>
+      </div>
+    </div>
+
+    <article class="card tl-formulas">
+      <h2>How the sums work</h2>
+      <ul>
+        <li>Message hours per month = bookings × threads × minutes ÷ 60</li>
+        <li>Call hours per month = calls per week × 4.33 × minutes ÷ 60</li>
+        <li>Hours back = (message hours + call hours) × share handled automatically</li>
+        <li>£ per month = hours back × hourly cost</li>
+        <li>£ per year = £ per month × 12</li>
+        <li>Working days = hours back ÷ 7.5</li>
+      </ul>
+      <h2 style="margin-top:28px">Why 40%</h2>
+      <p class="tl-note">In one live inbox for an Australian holiday-rental manager, about 47% of the inbox now closes with no human, and 10,000+ guest emails have been handled automatically. The default here is set lower, at 40%, to stay cautious.</p>
+      <h2 style="margin-top:28px">What's left out</h2>
+      <p class="tl-note">Set-up and running costs, and time spent checking drafts, aren't included. Complaints, damage and refunds still go to a person. Nothing is stored or sent.</p>
+      <p class="tl-cta"><a class="btn btn-accent" href="https://calendly.com/thegingerbtc/free-audit">Book a free 20-minute audit</a></p>
+    </article>
+  </div>
+</section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <div><a class="logo" href="/">Flowstead</a><p>AI receptionists and automations for holiday-let &amp; property managers.</p></div>
+    <ul><li><a href="/#build">What I build</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#maya">Maya demo</a></li><li><a href="time-leak-calculator.html" aria-current="page">Time leak calculator</a></li><li><a href="mailto:hello@flowstead.co.uk">hello@flowstead.co.uk</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+    <p class="copy">© 2026 Flowstead · Ian McDermott · United Kingdom</p>
+  </div>
+</footer>
+
+<div id="fs-consent" class="consent" hidden>
+  <p>Flowstead uses cookies to measure traffic. Accept to help improve the site, or decline. It works either way.</p>
+  <div><button type="button" id="fs-decline" class="btn btn-ghost btn-sm">Decline</button><button type="button" id="fs-accept" class="btn btn-dark btn-sm">Accept</button></div>
+</div>
+
+<script>
+(function(){
+  var t=document.querySelector('.nav-toggle'), nav=document.getElementById('nav-links');
+  if(t&&nav){
+    t.addEventListener('click',function(){var o=nav.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false')});
+    nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');t.setAttribute('aria-expanded','false')}});
+  }
+
+  var ids=['tl-bookings','tl-threads','tl-mins','tl-calls','tl-callmins','tl-rate','tl-share'];
+  function num(id){var n=parseFloat(document.getElementById(id).value);return isFinite(n)?n:0}
+  function money(n){return '£'+Math.round(n).toLocaleString('en-GB')}
+  function calc(){
+    var message=num('tl-bookings')*num('tl-threads')*num('tl-mins')/60;
+    var calls=num('tl-calls')*4.33*num('tl-callmins')/60;
+    var admin=message+calls;
+    var back=admin*(num('tl-share')/100);
+    var month=back*num('tl-rate');
+    document.getElementById('tl-share-out').textContent=Math.round(num('tl-share'))+'%';
+    document.getElementById('tl-msg').textContent=message.toFixed(1);
+    document.getElementById('tl-call').textContent=calls.toFixed(1);
+    document.getElementById('tl-admin').textContent=admin.toFixed(1);
+    document.getElementById('tl-back').textContent=back.toFixed(1);
+    document.getElementById('tl-month').textContent=money(month);
+    document.getElementById('tl-year').textContent=money(month*12);
+    document.getElementById('tl-days').textContent=(back/7.5).toFixed(2);
+  }
+  ids.forEach(function(id){document.getElementById(id).addEventListener('input',calc)});
+  document.getElementById('tl-form').addEventListener('submit',function(e){e.preventDefault()});
+  calc();
+
+  var c=document.getElementById('fs-consent'), saved=null;
+  try{saved=localStorage.getItem('fs_consent')}catch(e){}
+  if(c&&!saved)c.hidden=false;
+  function choose(v){try{localStorage.setItem('fs_consent',v)}catch(e){}if(v==='granted'&&typeof gtag==='function')gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});if(c)c.hidden=true}
+  var accept=document.getElementById('fs-accept'), decline=document.getElementById('fs-decline');
+  if(accept)accept.addEventListener('click',function(){choose('granted')});
+  if(decline)decline.addEventListener('click',function(){choose('denied')});
+})();
+</script>
+</body>
+</html>
