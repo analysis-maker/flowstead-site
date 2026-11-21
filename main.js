@@ -38,23 +38,9 @@
     if(e.origin==='https://calendly.com'&&e.data&&e.data.event==='calendly.event_scheduled'&&typeof gtag==='function'){gtag('event','book_audit',{event_category:'lead'})}
   });
 
-  // checklist form -> Flowstead n8n webhook; falls back to email on any failure
-  var f=document.getElementById('checklist-form'),m=document.getElementById('cl-msg');
-  f.addEventListener('submit',function(e){
-    e.preventDefault();
-    if(f.company_website.value){return}
-    var btn=f.querySelector('button[type=submit],button:not([type])');if(btn)btn.disabled=true;
-    m.textContent='Sending…';
-    var ctl=window.AbortController?new AbortController():null,tm=setTimeout(function(){if(ctl)ctl.abort()},12000);
-    function fail(){m.innerHTML='That didn\u2019t send. Email <a href="mailto:hello@flowstead.co.uk?subject=Checklist">hello@flowstead.co.uk</a> and I\u2019ll send it over, or <a href="checklist.pdf">download the checklist</a>.'}
-    fetch(f.action,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({email:f.email.value.trim(),source:'flowstead.co.uk',company_website:''}),signal:ctl?ctl.signal:undefined})
-      .then(function(res){if(!res.ok)throw 0;return res.json().catch(function(){return{ok:true}})})
-      .then(function(d){
-        if(d&&d.ok===false){m.textContent=d.error||'That email doesn\u2019t look right. Check it and try again.';return}
-        m.textContent='Done. Check your inbox for the checklist.';f.reset();if(typeof gtag==='function')gtag('event','checklist_signup')})
-      .catch(fail)
-      .then(function(){clearTimeout(tm);if(btn)btn.disabled=false});
-  });
+  // checklist: direct PDF download (email signup paused until the n8n workflow exists)
+  var dl=document.getElementById('cl-download');
+  if(dl)dl.addEventListener('click',function(){if(typeof gtag==='function')gtag('event','checklist_download',{event_category:'lead'})});
 
   // consent banner
   var c=document.getElementById('fs-consent'),saved=null;
