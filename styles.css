@@ -382,7 +382,6 @@ details p{color:var(--muted);padding:0 0 20px;max-width:40em}
 .legal ul{padding-left:20px;margin:0}
 .legal li{margin:8px 0}
 .legal a:not(.link){color:var(--accent-d)}
-.legal .check{background:var(--amber-s);color:#7a5400;border-radius:6px;padding:1px 6px;font-size:14px}
 .legal-back{margin-top:36px}
 .legal p.kicker{color:var(--accent)}
 .legal p.sub{color:var(--muted);font-size:17px}
