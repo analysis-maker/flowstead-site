@@ -385,3 +385,20 @@ details p{color:var(--muted);padding:0 0 20px;max-width:40em}
 .legal-back{margin-top:36px}
 .legal p.kicker{color:var(--accent)}
 .legal p.sub{color:var(--muted);font-size:17px}
+
+/* maya demo audio */
+.audio-card{margin-top:40px;padding:24px;scroll-margin-top:96px}
+.audio-head{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.audio-icon{flex:none;width:44px;height:44px;border-radius:12px;background:var(--accent-soft);color:var(--accent);display:grid;place-items:center}
+.audio-copy{flex:1 1 260px;min-width:0}
+.audio-copy h3{font-size:22px}
+.audio-caption{color:var(--muted);font-size:15px;margin-top:6px}
+.audio-chip{align-self:center}
+.audio-player{display:block;width:100%;margin-top:20px;height:48px;border-radius:12px;accent-color:var(--accent)}
+.audio-transcript{margin-top:18px;border-top:1px solid var(--line-2)}
+.audio-transcript summary{font-size:15px;padding:16px 0}
+.audio-transcript .timeline{margin:0 0 4px}
+.audio-transcript .timeline p{color:var(--ink-2);padding:0;max-width:none}
+.audio-transcript .timeline .act p{color:#11643A}
+.audio-note{font-size:13px;color:var(--faint);padding:8px 0 4px}
+@media (max-width:600px){.audio-card{padding:18px;margin-top:28px}.audio-copy h3{font-size:19px}.audio-chip{white-space:normal}}

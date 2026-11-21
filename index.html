@@ -249,6 +249,7 @@
         <li>Built on Retell AI and n8n, British English voice</li>
       </ul>
       <div class="cta-row">
+        <a class="btn btn-accent" href="#maya-demo">See Maya in action</a>
         <span class="btn btn-disabled" aria-disabled="true">Call Maya · number coming soon</span>
         <a class="btn btn-light" href="#audit">Get one for your business</a>
       </div>
@@ -274,6 +275,41 @@
         </table>
       </div>
     </div>
+  </div>
+  <div class="wrap">
+    <article class="card audio-card" id="maya-demo" aria-labelledby="maya-demo-title">
+      <div class="audio-head">
+        <span class="audio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10v4M7 7v10M11 4v16M15 8v8M19 11v2"/></svg></span>
+        <div class="audio-copy">
+          <p class="panel-kicker">Recorded test call · Seaview Stays</p>
+          <h3 id="maya-demo-title">Hear Maya handle a late-night lockout</h3>
+          <p class="audio-caption" id="maya-demo-caption">Real test call. Fictional guest and property. 1:54.</p>
+        </div>
+        <span class="chip chip-green audio-chip"><span class="dot dot-green"></span>Flagged urgent · no code given out</span>
+      </div>
+      <audio class="audio-player" controls preload="none" aria-labelledby="maya-demo-title" aria-describedby="maya-demo-caption">
+        <source src="audio/maya-demo-lockout.mp3" type="audio/mpeg">
+        Your browser can't play this audio. <a href="audio/maya-demo-lockout.mp3">Download the Maya demo call (MP3, 1:54)</a>.
+      </audio>
+      <details class="audio-transcript">
+        <summary>Read the transcript excerpt</summary>
+        <ol class="timeline" aria-label="Transcript excerpt of the Maya demo call">
+          <li><span class="who who-m">Maya</span><p>Hi, thanks for calling Seaview Stays. You're on a recorded line. I'm Maya, an AI assistant. The team can't take your call right now, but I'll take your details and pass them straight on so someone can call you back. How can I help?</p></li>
+          <li><span class="who">Caller</span><p>I'm really sorry, but I've locked [out] and the key safe code isn't working, and it's starting to get a little bit late.</p></li>
+          <li><span class="who who-m">Maya</span><p>I'm sorry you're having trouble with the key safe. Are you safe at the moment?</p></li>
+          <li><span class="who">Caller</span><p>Yeah. Perfectly safe.</p></li>
+          <li><span class="who who-m">Maya</span><p>Thanks for letting me know. For security, I can't share codes over the phone, but the host will sort it out with you when they call. Could I take your full name, the property you're at, and the best number to call you back?</p></li>
+          <li><span class="who">Caller</span><p>My name is [Name]. I'm staying at [Property]. My number is [callback number].</p></li>
+          <li><span class="who who-m">Maya</span><p>Thanks, [Name]. I've flagged this as urgent. The on-call host aims to call you back within 15 minutes, so please keep your phone free. Anything else I can help with?</p></li>
+          <li><span class="who">Caller</span><p>I've got my two kids in the car. I just wanna get inside. Can you not just [give me the code] this one time?</p></li>
+          <li><span class="who who-m">Maya</span><p>Sorry, I really can't share codes over the phone. The host will call you back very soon and help you get inside. Is there anything else I can do for you?</p></li>
+          <li><span class="who">Caller</span><p>Nope. Just hope she calls back soon. Thanks, Maya.</p></li>
+          <li><span class="who who-m">Maya</span><p>Thanks for calling Seaview Stays. Have a great day!</p></li>
+          <li class="act"><span class="who who-a">Action</span><p>Maya ends the call · urgent summary sent to the host</p></li>
+        </ol>
+        <p class="audio-note">Excerpt, lightly trimmed. Names and numbers are test data, not a real guest.</p>
+      </details>
+    </article>
   </div>
 </section>
 
