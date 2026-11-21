@@ -31,7 +31,7 @@
   document.getElementById('load-cal').addEventListener('click',function(){
     var slot=document.getElementById('calendly-slot');
     slot.classList.add('loaded');
-    slot.innerHTML='<div class="calendly-inline-widget" data-url="https://calendly.com/thegingerbtc/30min?hide_gdpr_banner=1&background_color=ffffff&text_color=111112&primary_color=0b7a55"></div>';
+    slot.innerHTML='<div class="calendly-inline-widget" data-url="https://calendly.com/thegingerbtc/free-audit?hide_gdpr_banner=1&background_color=ffffff&text_color=111112&primary_color=0b7a55"></div>';
     var sc=document.createElement('script');sc.src='https://assets.calendly.com/assets/external/widget.js';sc.async=true;document.body.appendChild(sc);
   });
   window.addEventListener('message',function(e){
