@@ -1,389 +1,472 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en-GB">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Free Automation Audit for Property Managers | Flowstead</title>
-<meta name="description" content="Free automation audit for short-term rental & holiday-let managers with 5+ properties. Automate guest messaging, booking sync and owner reports. Built on n8n, Zapier, Google Workspace & MCP.">
-
-<!-- Favicon -->
+<title>Flowstead · The AI back office for holiday lets</title>
+<meta name="description" content="Flowstead builds AI phone receptionists, AI inbox assistants and n8n automations for holiday-let and property managers. Built by an operator who has run them in production. Free 20-minute automation audit.">
+<link rel="canonical" href="https://flowstead.co.uk/">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="favicon-180x180.png">
-
-<!-- Social share (Open Graph + Twitter) -->
+<meta name="theme-color" content="#F4F4F1">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://flowstead.co.uk/">
-<meta property="og:title" content="Free Automation Audit for Property Managers | Flowstead">
-<meta property="og:description" content="Automate guest messaging, booking sync and owner reports. Book a free automation audit: a written map of the 3 automations that save you the most hours.">
+<meta property="og:title" content="Flowstead · The AI back office for holiday lets">
+<meta property="og:description" content="AI phone receptionists, inbox assistants and n8n automations for holiday-let and property managers. Book a free automation audit.">
 <meta property="og:image" content="https://flowstead.co.uk/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Flowstead: the AI back office for holiday lets">
+<meta property="og:site_name" content="Flowstead">
+<meta property="og:locale" content="en_GB">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Free Automation Audit for Property Managers | Flowstead">
-<meta name="twitter:description" content="Automate guest messaging, booking sync and owner reports. Book a free automation audit, no obligation, keep the map either way.">
+<meta name="twitter:title" content="Flowstead · The AI back office for holiday lets">
+<meta name="twitter:description" content="AI phone receptionists, inbox assistants and n8n automations for holiday-let and property managers. Book a free automation audit.">
 <meta name="twitter:image" content="https://flowstead.co.uk/og-image.png">
-
-<!-- Google Consent Mode v2 — default denied until the visitor accepts -->
+<meta name="theme-color" content="#F4F4F1">
+<link rel="preload" href="fonts/InterTight.woff2" as="font" type="font/woff2" crossorigin>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"Flowstead","url":"https://flowstead.co.uk/","email":"hello@flowstead.co.uk","areaServed":["GB","AU","US","EU"],"founder":{"@type":"Person","name":"Ian McDermott"},"description":"AI receptionists, AI email assistants and n8n automations for holiday-let and property managers."}
+</script>
+<!-- Google Consent Mode v2: denied until the visitor accepts (kept from the current site) -->
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
-  gtag('consent', 'default', {
-    ad_storage: 'denied',
-    analytics_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    functionality_storage: 'granted',
-    security_storage: 'granted',
-    wait_for_update: 500
-  });
-  try {
-    if (localStorage.getItem('fs_consent') === 'granted') {
-      gtag('consent', 'update', { ad_storage: 'granted', analytics_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
-    }
-  } catch (e) {}
+  gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+  try{if(localStorage.getItem('fs_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
 </script>
-<!-- Google Analytics 4 -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0T3JKN5LSL"></script>
-<script>
-  gtag('js', new Date());
-  gtag('config', 'G-0T3JKN5LSL');
-</script>
-<!-- Fire a lead conversion when a Calendly audit booking completes -->
-<script>
-  window.addEventListener('message', function (e) {
-    if (e.origin === 'https://calendly.com' && e.data && typeof e.data.event === 'string' && e.data.event === 'calendly.event_scheduled') {
-      gtag('event', 'book_audit', { event_category: 'lead', event_label: 'calendly_audit_booking' });
-      // Google Ads conversion — uncomment and add your conversion ID/label once Google Ads is set up:
-      // gtag('event', 'conversion', { send_to: 'AW-XXXXXXXXXX/xxxxxxxxxxxxxxxxxx' });
-    }
-  });
-</script>
-
-<style>
-  @keyframes auroraDrift{0%,100%{transform:translate3d(0,0,0) scale(1);opacity:.8}50%{transform:translate3d(48px,24px,0) scale(1.16);opacity:1}}
-  @keyframes auroraDrift2{0%,100%{transform:translate3d(0,0,0) scale(1.06);opacity:.65}50%{transform:translate3d(-56px,16px,0) scale(.94);opacity:1}}
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{margin:0;}
-  a{transition:opacity .15s ease;}
-  a:hover{opacity:.82;}
-  @media (max-width:820px){
-    .wrap{padding-left:22px !important;padding-right:22px !important;}
-    .nav{padding:16px 22px !important;}
-    .hero-pad{padding:48px 22px !important;}
-    .hero-grid{grid-template-columns:1fr !important;min-height:auto !important;gap:0 !important;}
-    .hero-side{display:none !important;}
-    .tools-row{flex-direction:column;align-items:flex-start !important;gap:14px !important;}
-    .pain-grid{grid-template-columns:1fr !important;gap:16px !important;}
-    .audit-grid{grid-template-columns:1fr !important;gap:32px !important;}
-    .proc-grid{grid-template-columns:1fr 1fr !important;gap:28px 0 !important;}
-    .stats-grid{grid-template-columns:1fr !important;gap:28px !important;}
-    .book-grid{grid-template-columns:1fr !important;gap:32px !important;}
-    .footer-row{flex-direction:column;gap:14px;align-items:flex-start !important;}
-    h1{font-size:44px !important;}
-  }
-  .fs-input{width:100%;background:#06100D;border:1px solid rgba(236,245,240,0.22);color:#ECF5F0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:15px;padding:13px 14px;outline:none;border-radius:2px;}
-  .fs-input::placeholder{color:#5E7268;}
-  .fs-input:focus{border-color:#1FE39B;box-shadow:0 0 0 1px #1FE39B;}
-  textarea.fs-input{resize:vertical;min-height:92px;}
-  .fs-btn{font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:14px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:#06100D;background:#1FE39B;padding:15px 26px;border:none;cursor:pointer;box-shadow:0 0 26px rgba(31,227,155,0.4);width:100%;}
-  .fs-btn:hover{opacity:.9;}
-</style>
+<script>gtag('js',new Date());gtag('config','G-0T3JKN5LSL');</script>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<div style="background:#06100D;color:#ECF5F0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;width:100%;min-height:100vh;overflow-x:hidden;">
+<a class="skip" href="#main">Skip to content</a>
 
-  <!-- ============ NAV (logo + single CTA, no distracting links) ============ -->
-  <header class="nav" style="display:flex;justify-content:space-between;align-items:center;padding:22px 56px;border-bottom:1px solid rgba(236,245,240,0.10);position:sticky;top:0;background:rgba(6,16,13,0.82);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);z-index:50;">
-    <div style="display:flex;align-items:baseline;gap:1px;font-weight:800;font-size:19px;letter-spacing:-0.015em;color:#ECF5F0;">
-      <span style="color:#1FE39B;">/</span><span>flowstead</span><span style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:10px;color:#7E9389;margin-left:5px;align-self:flex-start;">®</span>
+<header class="nav" id="top">
+  <div class="wrap nav-row">
+    <a class="logo" href="#top" aria-label="Flowstead home">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#111"/><path d="M8 18.5V7.5h9M8 13h6.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="18.5" cy="18" r="2" fill="#0B7A55"/></svg>
+      Flowstead
+    </a>
+    <nav aria-label="Main">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links">
+        <li><a href="#build">What I build</a></li>
+        <li><a href="#maya">Maya demo</a></li>
+        <li><a href="#results">Results</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+        <li><a href="#about">About</a></li>
+        <li class="nav-cta-li"><a class="btn btn-dark btn-sm" href="#audit">Book a free audit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-shell">
+    <div class="hero-copy">
+      <p class="eyebrow"><span class="dot dot-green"></span>AI automation for holiday-let &amp; property managers</p>
+      <h1>The AI back office for holiday lets.</h1>
+      <p class="lede">I build AI phone receptionists, AI inbox assistants and n8n automations that answer guests, log enquiries and clear the admin, with a person approving anything that matters.</p>
+      <div class="cta-row">
+        <a class="btn btn-accent" href="#audit">Book a free 20-min audit</a>
+        <a class="btn btn-light" href="#build">See what I build</a>
+      </div>
+      <p class="proof-line">Built and run in production for an Australian holiday-rental manager.</p>
     </div>
-    <a href="#book" style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#06100D;background:#1FE39B;text-decoration:none;padding:11px 18px;font-weight:700;box-shadow:0 0 22px rgba(31,227,155,0.35);">Book free audit →</a>
-  </header>
 
-  <!-- ============ HERO ============ -->
-  <section style="position:relative;padding:0 56px;background:radial-gradient(72% 62% at 80% 20%, rgba(31,227,155,0.26), transparent 60%), radial-gradient(46% 46% at 30% 100%, rgba(31,227,155,0.15), transparent 62%), #06100D;overflow:hidden;">
-    <div style="position:absolute;top:-180px;left:6%;width:720px;height:460px;background:radial-gradient(50% 50% at 50% 50%, rgba(31,227,155,0.32), transparent 70%);filter:blur(66px);animation:auroraDrift 17s ease-in-out infinite;pointer-events:none;z-index:0;"></div>
-    <div style="position:absolute;top:-140px;right:3%;width:580px;height:400px;background:radial-gradient(50% 50% at 50% 50%, rgba(72,255,206,0.24), transparent 70%);filter:blur(78px);animation:auroraDrift2 22s ease-in-out infinite;pointer-events:none;z-index:0;"></div>
-    <div style="position:absolute;inset:0;z-index:0;pointer-events:none;opacity:0.55;background-image:radial-gradient(1px 1px at 24px 32px, rgba(255,255,255,0.85), transparent),radial-gradient(1px 1px at 140px 92px, rgba(190,255,230,0.7), transparent),radial-gradient(1.6px 1.6px at 250px 168px, rgba(255,255,255,0.65), transparent),radial-gradient(1px 1px at 330px 58px, rgba(31,227,155,0.9), transparent),radial-gradient(1px 1px at 92px 220px, rgba(255,255,255,0.55), transparent),radial-gradient(1.4px 1.4px at 300px 244px, rgba(120,255,210,0.6), transparent);background-size:380px 280px,380px 280px,380px 280px,380px 280px,380px 280px,380px 280px;"></div>
-    <div class="hero-grid hero-pad" style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:stretch;min-height:640px;position:relative;z-index:1;padding:0;">
-      <!-- left -->
-      <div style="display:flex;flex-direction:column;justify-content:center;padding:72px 0;">
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;letter-spacing:0.2em;color:#1FE39B;margin-bottom:30px;">/01 · FREE AUTOMATION AUDIT</div>
-        <h1 style="font-size:clamp(46px,5.6vw,80px);line-height:0.92;font-weight:800;letter-spacing:-0.035em;color:#ECF5F0;margin:0;">Automate the admin<br>that runs your week.</h1>
-        <p style="font-size:19px;line-height:1.5;color:#9DB1A7;max-width:540px;margin:30px 0 0 0;font-weight:400;">Guest replies at all hours, double-bookings across Airbnb &amp; Booking.com, owner statements built by hand. Flowstead wires them into one system on n8n, Zapier &amp; Google Workspace. Set it up once; it runs every day.</p>
-        <div style="display:inline-flex;align-items:center;gap:9px;margin-top:26px;padding:9px 15px;border:1px solid rgba(31,227,155,0.30);background:rgba(31,227,155,0.06);width:fit-content;">
-          <span style="width:7px;height:7px;border-radius:50%;background:#1FE39B;box-shadow:0 0 10px #1FE39B;"></span>
-          <span style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.06em;color:#D7EAE2;">Best for STR &amp; holiday-let managers with 5+ properties</span>
+    <div class="hero-stage" aria-label="Example: AI-drafted guest replies waiting for approval">
+      <div class="panel approvals">
+        <div class="panel-head">
+          <div><p class="panel-kicker">Seaview Stays · Inbox</p><h2 class="panel-title">Replies to approve</h2></div>
+          <span class="chip"><span class="dot dot-amber"></span>4 waiting</span>
         </div>
-        <div style="display:flex;align-items:center;gap:20px;margin-top:34px;flex-wrap:wrap;">
-          <a href="#book" style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:#06100D;background:#1FE39B;padding:17px 30px;text-decoration:none;box-shadow:0 0 26px rgba(31,227,155,0.4);">Book my free automation audit</a>
-          <a href="#audit" style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:#8DA499;text-decoration:none;">See what the audit covers ↓</a>
-        </div>
-      </div>
-      <!-- right : stack diagram panel -->
-      <div class="hero-side" style="position:relative;align-self:end;height:600px;">
-        <div style="position:absolute;right:24px;top:120px;width:360px;height:420px;background:radial-gradient(58% 54% at 50% 42%, rgba(31,227,155,0.40), transparent 66%);filter:blur(26px);"></div>
-        <div style="position:absolute;right:0;top:54px;bottom:0;width:392px;background:#081310;border:1px solid rgba(31,227,155,0.20);"></div>
-        <div style="position:absolute;right:392px;top:54px;bottom:0;width:3px;background:#1FE39B;box-shadow:0 0 24px rgba(31,227,155,0.9),0 0 48px rgba(31,227,155,0.45);"></div>
-        <!-- diagram -->
-        <div style="position:absolute;right:0;top:54px;width:392px;bottom:0;display:flex;align-items:center;justify-content:center;z-index:2;">
-          <svg width="340" height="470" viewBox="0 0 360 500" fill="none" xmlns="http://www.w3.org/2000/svg" style="overflow:visible;">
-            <defs>
-              <radialGradient id="g" cx="50%" cy="50%" r="50%">
-                <stop offset="0%" stop-color="#1FE39B" stop-opacity="0.55"/>
-                <stop offset="55%" stop-color="#1FE39B" stop-opacity="0.10"/>
-                <stop offset="100%" stop-color="#1FE39B" stop-opacity="0"/>
-              </radialGradient>
-            </defs>
-            <text x="10" y="28" font-family="ui-monospace,Menlo,monospace" font-size="12" letter-spacing="2" fill="#1FE39B">YOUR STACK, CONNECTED</text>
-            <!-- node pills -->
-            <g font-family="'Helvetica Neue',Arial,sans-serif">
-              <rect x="10" y="66" width="172" height="46" rx="3" fill="#0c1a15" stroke="rgba(31,227,155,0.30)"/>
-              <text x="26" y="94" font-size="16" font-weight="700" fill="#ECF5F0">n8n</text>
-              <text x="166" y="93" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#8DA499" text-anchor="end">01</text>
-              <rect x="10" y="134" width="172" height="46" rx="3" fill="#0c1a15" stroke="rgba(31,227,155,0.30)"/>
-              <text x="26" y="162" font-size="16" font-weight="700" fill="#ECF5F0">Zapier</text>
-              <text x="166" y="161" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#8DA499" text-anchor="end">02</text>
-              <rect x="10" y="202" width="172" height="46" rx="3" fill="#0c1a15" stroke="rgba(31,227,155,0.30)"/>
-              <text x="26" y="230" font-size="16" font-weight="700" fill="#ECF5F0">Workspace</text>
-              <text x="166" y="229" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#8DA499" text-anchor="end">03</text>
-              <rect x="10" y="270" width="172" height="46" rx="3" fill="#0c1a15" stroke="rgba(31,227,155,0.30)"/>
-              <text x="26" y="298" font-size="16" font-weight="700" fill="#ECF5F0">MCP</text>
-              <text x="166" y="297" font-size="11" font-family="ui-monospace,Menlo,monospace" fill="#8DA499" text-anchor="end">04</text>
-            </g>
-            <!-- connectors -->
-            <g stroke="rgba(31,227,155,0.45)" stroke-width="1.4">
-              <line x1="182" y1="89" x2="214" y2="89"/>
-              <line x1="182" y1="157" x2="214" y2="157"/>
-              <line x1="182" y1="225" x2="214" y2="225"/>
-              <line x1="182" y1="293" x2="214" y2="293"/>
-              <line x1="214" y1="89" x2="214" y2="293"/>
-              <line x1="214" y1="191" x2="244" y2="191"/>
-            </g>
-            <!-- engine glow + box -->
-            <circle cx="298" cy="210" r="120" fill="url(#g)"/>
-            <rect x="244" y="151" width="106" height="80" rx="3" fill="#08130f" stroke="#1FE39B" stroke-width="1.4"/>
-            <text x="297" y="186" font-size="11" letter-spacing="2" font-family="ui-monospace,Menlo,monospace" fill="#1FE39B" text-anchor="middle">ENGINE</text>
-            <text x="297" y="210" font-size="17" font-weight="700" fill="#ECF5F0" text-anchor="middle" font-family="'Helvetica Neue',Arial,sans-serif">Flowstead</text>
-            <line x1="297" y1="231" x2="297" y2="286" stroke="#1FE39B" stroke-width="1.5"/>
-            <!-- guest-ready -->
-            <rect x="244" y="286" width="106" height="42" rx="3" fill="#1FE39B"/>
-            <text x="297" y="312" font-size="12" font-weight="700" letter-spacing="1.2" font-family="ui-monospace,Menlo,monospace" fill="#06100D" text-anchor="middle">GUEST-READY</text>
-          </svg>
-        </div>
-        <div style="position:absolute;left:8px;bottom:34px;background:#081310;border:1px solid rgba(31,227,155,0.28);padding:14px 18px;display:flex;align-items:center;gap:11px;z-index:3;">
-          <span style="width:8px;height:8px;border-radius:50%;background:#1FE39B;box-shadow:0 0 10px #1FE39B;"></span>
-          <span style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.08em;color:#D7EAE2;">Now booking free audits</span>
+        <ul class="queue">
+          <li><div><b>Late checkout, Bay View</b><small>Emma L. · AI draft ready</small></div><span class="row-r">11:00 → 12:00<span class="dot dot-amber"></span></span></li>
+          <li><div><b>Parking at Harbour Loft</b><small>James P. · Sent automatically</small></div><span class="row-r">FAQ<span class="dot dot-green"></span></span></li>
+          <li><div><b>Wi-Fi not working</b><small>Priya S. · Needs a person</small></div><span class="row-r">Urgent<span class="dot dot-red"></span></span></li>
+          <li><div><b>Dog-friendly? Dune Cottage</b><small>Tom R. · AI draft ready</small></div><span class="row-r">Policy<span class="dot dot-amber"></span></span></li>
+          <li><div><b>Check-in time, Cliff House</b><small>Ana M. · Sent automatically</small></div><span class="row-r">FAQ<span class="dot dot-green"></span></span></li>
+        </ul>
+        <div class="draft">
+          <p class="draft-label">AI draft · Emma L.</p>
+          <p>Hi Emma, happy to help. Bay View is free until 3pm tomorrow, so a 12:00 checkout is fine at no extra cost. Enjoy your last morning!</p>
+          <div class="draft-actions"><span class="btn btn-dark btn-xs">Approve &amp; send</span><span class="btn btn-ghost btn-xs">Edit</span></div>
         </div>
       </div>
+      <div class="panel float-call">
+        <div class="mini-head"><span class="avatar-m">M</span><div><b>Maya · Call logged</b><small>2 min ago</small></div></div>
+        <p class="mini-line">Booking enquiry · Bay View</p>
+        <p class="mini-sub">12–19 Jun · 2 adults, 1 child</p>
+        <span class="chip chip-green"><span class="dot dot-green"></span>Added to sheet</span>
+      </div>
+      <div class="pill-stat"><b>37–44%</b> of the inbox closed by AI</div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ TOOLS STRIP ============ -->
-  <section style="border-top:1px solid rgba(236,245,240,0.10);border-bottom:1px solid rgba(236,245,240,0.10);background:#06100D;">
-    <div class="wrap tools-row" style="max-width:1360px;margin:0 auto;padding:22px 56px;display:flex;justify-content:space-between;align-items:center;gap:40px;">
-      <span style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#7E9389;flex:none;">Built on</span>
-      <div style="display:flex;align-items:center;gap:38px;flex-wrap:wrap;font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:16px;letter-spacing:0.02em;color:#C2D4CC;">
-        <span>n8n</span><span style="color:#1FE39B;">/</span><span>Zapier</span><span style="color:#1FE39B;">/</span><span>Google Workspace</span><span style="color:#1FE39B;">/</span><span>MCP</span>
-      </div>
+<!-- STATS -->
+<section class="stats" aria-label="Track record">
+  <div class="wrap">
+    <ul class="stat-grid">
+      <li class="card"><b>265</b><span>n8n workflows built</span><small>120 running every day</small></li>
+      <li class="card"><b>37–44%</b><span>of a guest inbox</span><small>closed or replied to by AI</small></li>
+      <li class="card"><b>500+</b><span>AI guest replies</span><small>sent and approved</small></li>
+      <li class="card"><b>25 hrs</b><span>saved every week</span><small>on one appraisals process</small></li>
+    </ul>
+    <p class="tools"><span>Works with</span> n8n · Retell AI · Claude · Help Scout · Hostfully · HomHero · PriceLabs · Supabase · Google Workspace · Slack · Trello · ActiveCampaign · WordPress</p>
+  </div>
+</section>
+
+<!-- WHAT I BUILD -->
+<section class="section" id="build">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">What I build</p>
+      <h2>Practical AI that sits inside the tools you already use.</h2>
+      <p class="sub">Each one is built in your accounts, tested on your real messages and calls, and handed over so you own it.</p>
     </div>
-  </section>
 
-  <!-- ============ PAINS ============ -->
-  <section style="background:#0A1712;color:#ECF5F0;">
-    <div class="wrap" style="max-width:1360px;margin:0 auto;padding:84px 56px;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid rgba(236,245,240,0.14);">
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#8DA499;"><span style="color:#1FE39B;">/</span> Sound familiar?</div>
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;color:#8DA499;">/ 02</div>
-      </div>
-      <h2 style="font-size:clamp(34px,4.4vw,54px);line-height:0.98;font-weight:800;letter-spacing:-0.03em;color:#ECF5F0;margin:30px 0 44px 0;">If this is your week,<br>we should talk.</h2>
-      <div class="pain-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:22px;">
-        <div style="background:#06100D;border:1px solid rgba(236,245,240,0.12);padding:30px 28px;">
-          <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;color:#1FE39B;margin-bottom:16px;">01</div>
-          <div style="font-size:21px;font-weight:700;letter-spacing:-0.01em;line-height:1.25;margin-bottom:12px;">Answering the same guest questions at 11pm.</div>
-          <div style="font-size:15px;color:#8DA499;line-height:1.5;">Check-in times, wifi codes, directions. The same replies, every day, at every hour.</div>
+    <div class="show-grid">
+      <!-- 1 Inbox -->
+      <article class="card show">
+        <div class="show-copy"><p class="tag-line">AI inbox assistant</p><h3>Routine guest emails answered. Tricky ones flagged.</h3><p>Replies are drafted in your tone from your house rules. Safe topics send on their own; anything else waits for your approval.</p></div>
+        <div class="ui">
+          <div class="ui-bar"><span>Help Scout · Guest inbox</span><span class="chip chip-sm">Today</span></div>
+          <table class="ui-table">
+            <thead><tr><th>Guest</th><th>Topic</th><th>Status</th></tr></thead>
+            <tbody>
+              <tr><td>Emma L.</td><td>Late checkout</td><td><span class="st st-amber">Approve</span></td></tr>
+              <tr><td>James P.</td><td>Parking</td><td><span class="st st-green">Sent</span></td></tr>
+              <tr><td>Priya S.</td><td>Wi-Fi down</td><td><span class="st st-red">Escalated</span></td></tr>
+              <tr><td>Ana M.</td><td>Check-in time</td><td><span class="st st-green">Closed</span></td></tr>
+            </tbody>
+          </table>
         </div>
-        <div style="background:#06100D;border:1px solid rgba(236,245,240,0.12);padding:30px 28px;">
-          <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;color:#1FE39B;margin-bottom:16px;">02</div>
-          <div style="font-size:21px;font-weight:700;letter-spacing:-0.01em;line-height:1.25;margin-bottom:12px;">A double-booking slipped through again.</div>
-          <div style="font-size:15px;color:#8DA499;line-height:1.5;">Calendars drift out of sync across Airbnb, Booking.com and your PMS, and the guest finds out first.</div>
+      </article>
+      <!-- 2 Voice -->
+      <article class="card show">
+        <div class="show-copy"><p class="tag-line">AI phone receptionist</p><h3>Every call answered, every detail written down.</h3><p>Maya picks up when you can't, takes the details, reads them back and logs the call before you're off the other line.</p></div>
+        <div class="ui">
+          <div class="ui-bar"><span>Call log · Maya</span><span class="chip chip-sm"><span class="dot dot-green"></span>Live</span></div>
+          <ul class="calls">
+            <li><span class="ci">09:12</span><div><b>Booking enquiry</b><small>Bay View · 12–19 Jun</small></div><span class="st st-green">Logged</span></li>
+            <li><span class="ci">10:47</span><div><b>Maintenance</b><small>Dune Cottage · boiler</small></div><span class="st st-red">Urgent</span></li>
+            <li><span class="ci">13:05</span><div><b>Directions</b><small>Harbour Loft · parking</small></div><span class="st st-green">Answered</span></li>
+            <li><span class="ci">18:30</span><div><b>Owner call-back</b><small>Cliff House</small></div><span class="st st-amber">Call back</span></li>
+          </ul>
         </div>
-        <div style="background:#06100D;border:1px solid rgba(236,245,240,0.12);padding:30px 28px;">
-          <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;color:#1FE39B;margin-bottom:16px;">03</div>
-          <div style="font-size:21px;font-weight:700;letter-spacing:-0.01em;line-height:1.25;margin-bottom:12px;">Owner statements eat a full day, by hand.</div>
-          <div style="font-size:15px;color:#8DA499;line-height:1.5;">Every month you rebuild the same spreadsheets so owners get paid and stay informed.</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ============ WHAT THE AUDIT GIVES YOU ============ -->
-  <section id="audit" style="background:#06100D;">
-    <div class="wrap" style="max-width:1360px;margin:0 auto;padding:84px 56px;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid rgba(236,245,240,0.14);">
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#1FE39B;"><span>/</span> Your free audit</div>
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;color:#8DA499;">/ 03</div>
-      </div>
-      <div class="audit-grid" style="display:grid;grid-template-columns:1fr 1fr;gap:54px;margin-top:38px;align-items:start;">
-        <div>
-          <h2 style="font-size:clamp(32px,4.2vw,50px);line-height:0.98;font-weight:800;letter-spacing:-0.03em;color:#ECF5F0;margin:0 0 22px 0;">A written map of<br>your biggest wins.</h2>
-          <p style="font-size:17px;line-height:1.6;color:#9DB1A7;max-width:460px;margin:0;">A 20-minute call, then a short written map of the three automations that will save you the most hours: which task, which tools, and the time back per week. Yours to keep, whether we work together or not.</p>
-        </div>
-        <div>
-          <div style="display:flex;gap:16px;padding:20px 0;border-top:1px solid rgba(236,245,240,0.14);">
-            <span style="color:#1FE39B;font-size:18px;line-height:1.4;flex:none;">→</span>
-            <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">A 20-minute call</div><div style="font-size:15px;color:#8DA499;line-height:1.5;">We map the manual work eating your week. No prep needed.</div></div>
+      </article>
+      <!-- 3 Pricing -->
+      <article class="card show">
+        <div class="show-copy"><p class="tag-line">Pricing guards</p><h3>No more peak weeks sold at off-peak prices.</h3><p>PriceLabs setup plus a daily check against your minimum rates, so a bad sync gets caught before a guest books it.</p></div>
+        <div class="ui">
+          <div class="alert">
+            <span class="alert-ic" aria-hidden="true"><svg viewBox="0 0 20 20" width="18" height="18"><path d="M10 3 18 17H2z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/><path d="M10 8v4M10 14.5v.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></span>
+            <div><b>2 nights below minimum</b><small>Cliff House · Sat 1 &amp; Sun 2 Aug</small></div>
           </div>
-          <div style="display:flex;gap:16px;padding:20px 0;border-top:1px solid rgba(236,245,240,0.14);">
-            <span style="color:#1FE39B;font-size:18px;line-height:1.4;flex:none;">→</span>
-            <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">Your top 3 automations, ranked</div><div style="font-size:15px;color:#8DA499;line-height:1.5;">A written map of the wins with the biggest time payback first.</div></div>
+          <div class="kpis">
+            <div><small>Listed</small><b>£142</b></div>
+            <div><small>Your minimum</small><b>£210</b></div>
+            <div><small>Suggested</small><b class="acc">£235</b></div>
           </div>
-          <div style="display:flex;gap:16px;padding:20px 0;border-top:1px solid rgba(236,245,240,0.14);">
-            <span style="color:#1FE39B;font-size:18px;line-height:1.4;flex:none;">→</span>
-            <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">The tools and rough effort for each</div><div style="font-size:15px;color:#8DA499;line-height:1.5;">Built on tools you already own where possible, like n8n, Zapier and Google Workspace.</div></div>
+          <div class="ui-actions"><span class="btn btn-dark btn-xs">Fix in PriceLabs</span><span class="btn btn-ghost btn-xs">Snooze</span></div>
+        </div>
+      </article>
+      <!-- 4 Clean check -->
+      <article class="card show">
+        <div class="show-copy"><p class="tag-line">AI photo checks</p><h3>Spot the unmade bed before the guest does.</h3><p>Cleaners upload their photos as usual. AI checks each room against your standard and flags misses straight away.</p></div>
+        <div class="ui">
+          <div class="ui-bar"><span>Clean check · Harbour Loft</span><span class="chip chip-sm">3 of 4 pass</span></div>
+          <div class="photos">
+            <figure class="ph ok"><svg viewBox="0 0 60 40" aria-hidden="true"><rect x="8" y="18" width="44" height="12" rx="2"/><rect x="10" y="12" width="14" height="7" rx="2"/><rect x="36" y="12" width="14" height="7" rx="2"/></svg><figcaption>Bedroom 1<span class="st st-green">Pass</span></figcaption></figure>
+            <figure class="ph bad"><svg viewBox="0 0 60 40" aria-hidden="true"><path d="M8 30 L14 20 L30 24 L44 17 L52 30Z"/><rect x="12" y="11" width="14" height="7" rx="2" transform="rotate(-12 19 14)"/></svg><figcaption>Bedroom 2<span class="st st-red">Bed not made</span></figcaption></figure>
+            <figure class="ph ok"><svg viewBox="0 0 60 40" aria-hidden="true"><rect x="10" y="14" width="40" height="14" rx="6"/><rect x="26" y="8" width="8" height="6" rx="1"/></svg><figcaption>Bathroom<span class="st st-green">Pass</span></figcaption></figure>
+            <figure class="ph ok"><svg viewBox="0 0 60 40" aria-hidden="true"><rect x="8" y="16" width="44" height="12" rx="3"/><rect x="8" y="10" width="44" height="8" rx="3"/></svg><figcaption>Lounge<span class="st st-green">Pass</span></figcaption></figure>
           </div>
-          <div style="display:flex;gap:16px;padding:20px 0;border-top:1px solid rgba(236,245,240,0.14);border-bottom:1px solid rgba(236,245,240,0.14);">
-            <span style="color:#1FE39B;font-size:18px;line-height:1.4;flex:none;">→</span>
-            <div><div style="font-size:17px;font-weight:700;margin-bottom:4px;">No obligation, no sales pitch</div><div style="font-size:15px;color:#8DA499;line-height:1.5;">Keep the map either way. If it's a fit, Flowstead will quote the build separately.</div></div>
-          </div>
-          <a href="#book" style="display:inline-block;margin-top:28px;font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;color:#06100D;background:#1FE39B;padding:16px 28px;text-decoration:none;box-shadow:0 0 26px rgba(31,227,155,0.4);">Book my free audit</a>
         </div>
-      </div>
+      </article>
     </div>
-  </section>
 
-  <!-- ============ PROCESS ============ -->
-  <section style="background:#0A1712;">
-    <div class="wrap" style="max-width:1360px;margin:0 auto;padding:84px 56px;">
-      <div style="display:flex;justify-content:space-between;align-items:flex-start;padding-bottom:20px;border-bottom:1px solid rgba(236,245,240,0.14);">
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#1FE39B;"><span>/</span> How it works</div>
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;color:#8DA499;">/ 04</div>
-      </div>
-      <h2 style="font-size:clamp(34px,4.4vw,54px);line-height:0.98;font-weight:800;letter-spacing:-0.03em;color:#ECF5F0;margin:30px 0 50px 0;">Set up once.<br>Runs every day.</h2>
-      <div class="proc-grid" style="display:grid;grid-template-columns:repeat(4,1fr);gap:0;">
-        <div style="border-top:1.5px solid #1FE39B;padding:24px 28px 0 0;">
-          <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;color:#1FE39B;margin-bottom:18px;">01</div>
-          <div style="font-size:23px;font-weight:700;letter-spacing:-0.01em;margin-bottom:12px;">Audit</div>
-          <div style="font-size:15px;line-height:1.5;color:#9DB1A7;">We map every manual task eating your week.</div>
+    <div class="mini-grid">
+      <article class="card mini">
+        <p class="tag-line">n8n workflows, built or fixed</p>
+        <div class="flow" aria-label="Example workflow: new booking to sheet and Slack, with an approval step">
+          <span class="node">New booking</span><span class="arrow" aria-hidden="true"></span>
+          <span class="node">AI checks</span><span class="arrow" aria-hidden="true"></span>
+          <span class="node node-acc">You approve</span><span class="arrow" aria-hidden="true"></span>
+          <span class="node">Sheet + Slack</span>
         </div>
-        <div style="border-top:1.5px solid rgba(236,245,240,0.18);padding:24px 28px 0;">
-          <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;color:#5E7268;margin-bottom:18px;">02</div>
-          <div style="font-size:23px;font-weight:700;letter-spacing:-0.01em;margin-bottom:12px;">Build</div>
-          <div style="font-size:15px;line-height:1.5;color:#9DB1A7;">Flowstead wires your tools into clean, reliable workflows.</div>
+        <p>Bookings, receipts, reminders and hand-offs between your PMS, inbox, sheets and Slack. Error alerts included.</p>
+      </article>
+      <article class="card mini">
+        <p class="tag-line">Owner comms &amp; reporting</p>
+        <div class="owner">
+          <div class="owner-row"><b>Monthly owner update · Bay View</b><span class="st st-amber">Draft</span></div>
+          <div class="owner-kpis"><span>Occupancy <b>86%</b></span><span>Nights <b>26</b></span><span>Reviews <b>4.9</b></span></div>
         </div>
-        <div style="border-top:1.5px solid rgba(236,245,240,0.18);padding:24px 28px 0;">
-          <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;color:#5E7268;margin-bottom:18px;">03</div>
-          <div style="font-size:23px;font-weight:700;letter-spacing:-0.01em;margin-bottom:12px;">Automate</div>
-          <div style="font-size:15px;line-height:1.5;color:#9DB1A7;">Messaging, sync and reports run themselves.</div>
-        </div>
-        <div style="border-top:1.5px solid rgba(236,245,240,0.18);padding:24px 0 0 28px;">
-          <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:13px;color:#5E7268;margin-bottom:18px;">04</div>
-          <div style="font-size:23px;font-weight:700;letter-spacing:-0.01em;margin-bottom:12px;">Handover</div>
-          <div style="font-size:15px;line-height:1.5;color:#9DB1A7;">Docs, training &amp; support so you stay in control.</div>
-        </div>
-      </div>
+        <p>Owner emails and monthly reports drafted from your PMS data, ready for you to check and send.</p>
+      </article>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- ============ STATS BAND (honest: design goals, not proven averages) ============ -->
-  <section style="background:#06100D;border-top:1px solid rgba(236,245,240,0.14);">
-    <div class="wrap" style="max-width:1360px;margin:0 auto;padding:40px 56px 0;">
-      <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:#7E9389;">What every build is designed to deliver</div>
+<!-- HOW -->
+<section class="section tint" id="how">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">How it works</p>
+      <h2>From first call to running on its own in about two weeks.</h2>
     </div>
-    <div class="wrap stats-grid" style="max-width:1360px;margin:0 auto;padding:26px 56px 52px;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;">
-      <div>
-        <div style="font-size:60px;font-weight:800;letter-spacing:-0.03em;color:#1FE39B;line-height:1;text-shadow:0 0 28px rgba(31,227,155,0.4);">10+ hrs</div>
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8DA499;margin-top:12px;">Target time saved / week</div>
-      </div>
-      <div>
-        <div style="font-size:60px;font-weight:800;letter-spacing:-0.03em;color:#ECF5F0;line-height:1;">24/7</div>
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8DA499;margin-top:12px;">Automated guest responses</div>
-      </div>
-      <div>
-        <div style="font-size:60px;font-weight:800;letter-spacing:-0.03em;color:#ECF5F0;line-height:1;">1 calendar</div>
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:#8DA499;margin-top:12px;">Every channel in sync</div>
-      </div>
-    </div>
-    <div class="wrap" style="max-width:1360px;margin:0 auto;padding:0 56px 44px;">
-      <div style="font-size:13px;color:#5E7268;line-height:1.5;max-width:640px;">Targets, not guarantees: actual time saved depends on your portfolio, channels and current setup. Your audit gives you a realistic estimate for your operation.</div>
-    </div>
-  </section>
+    <ol class="steps">
+      <li class="card"><span class="num">1</span><b>Free audit</b><p>20 minutes. We find the three tasks that cost you the most time.</p></li>
+      <li class="card"><span class="num">2</span><b>Fixed quote</b><p>A written plan with price, timeline and what you'll get.</p></li>
+      <li class="card"><span class="num">3</span><b>Build &amp; test</b><p>Built in your accounts and tested on real examples.</p></li>
+      <li class="card"><span class="num">4</span><b>Handover</b><p>Docs and a short video, so you own and understand it.</p></li>
+      <li class="card"><span class="num">5</span><b>Look after</b><p>An optional monthly plan to keep it tuned.</p></li>
+    </ol>
+    <p class="note-line"><span class="dot dot-green"></span>Rule I build with: the AI drafts, a person approves anything that costs money or could upset a guest.</p>
+  </div>
+</section>
 
-  <!-- ============ BOOK / CTA ============ -->
-  <section id="book" style="background:radial-gradient(80% 130% at 50% 0%, rgba(31,227,155,0.22), transparent 58%), #081B14;color:#ECF5F0;border-top:1px solid rgba(31,227,155,0.25);">
-    <div class="wrap book-grid" style="max-width:1360px;margin:0 auto;padding:96px 56px;display:grid;grid-template-columns:1fr 1fr;gap:54px;align-items:start;">
-      <div>
-        <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.2em;text-transform:uppercase;color:#1FE39B;margin-bottom:26px;">/ 05 · Book your audit</div>
-        <h2 style="font-size:clamp(38px,5vw,68px);line-height:0.94;font-weight:800;letter-spacing:-0.035em;color:#ECF5F0;margin:0 0 22px 0;">Book your free<br>automation audit.</h2>
-        <p style="font-size:17px;line-height:1.55;color:#9DB1A7;max-width:440px;margin:0 0 26px 0;">Pick a 20-minute slot that suits you and you're booked, no back-and-forth. You'll walk away with the automation map either way.</p>
-        <div style="display:flex;align-items:center;gap:11px;">
-          <span style="color:#1FE39B;font-size:16px;">✓</span>
-          <span style="font-size:15px;color:#C2D4CC;">No obligation. No sales pitch. You keep the audit map.</span>
-        </div>
-      </div>
-      <!-- Calendly inline booking widget (themed to match the site). -->
-      <div style="width:100%;">
-        <div class="calendly-inline-widget" data-url="https://calendly.com/thegingerbtc/30min?hide_gdpr_banner=1&amp;background_color=ffffff&amp;text_color=1a2b24&amp;primary_color=0f9c6c" style="min-width:300px;height:700px;background:#ffffff;border:1px solid rgba(236,245,240,0.12);border-radius:6px;"></div>
-        <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-        <a href="mailto:hello@flowstead.co.uk?subject=Free%20automation%20audit" style="display:inline-block;margin-top:10px;font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.06em;color:#8DA499;text-decoration:none;">Prefer email? hello@flowstead.co.uk ↗</a>
+<!-- MAYA -->
+<section class="section" id="maya">
+  <div class="wrap maya-grid">
+    <div class="maya-copy">
+      <p class="kicker">Live demo</p>
+      <h2>Meet Maya, the AI receptionist.</h2>
+      <p class="sub">Maya answers calls for <i>Seaview Stays</i>, a fictional brand I built to show the whole thing end to end. When the call ends, you get a summary email and a new row in a Google Sheet.</p>
+      <ul class="checks">
+        <li>Takes bookings, maintenance and urgent issues</li>
+        <li>Reads back numbers, emails and dates</li>
+        <li>Never guesses prices or availability; hands those to you</li>
+        <li>Built on Retell AI and n8n, British English voice</li>
+      </ul>
+      <div class="cta-row">
+        <span class="btn btn-disabled" aria-disabled="true">Call Maya · number coming soon</span>
+        <a class="btn btn-light" href="#audit">Get one for your business</a>
       </div>
     </div>
-  </section>
-
-  <!-- ============ SOFT SECONDARY CTA (checklist / list-build) ============ -->
-  <section style="background:#06100D;border-top:1px solid rgba(236,245,240,0.14);">
-    <div class="wrap book-grid" style="max-width:1360px;margin:0 auto;padding:56px 56px;display:grid;grid-template-columns:1.1fr 0.9fr;gap:40px;align-items:center;">
-      <div>
-        <div style="font-size:23px;font-weight:700;letter-spacing:-0.01em;color:#ECF5F0;margin-bottom:8px;">Not ready to talk?</div>
-        <div style="font-size:16px;color:#8DA499;line-height:1.5;max-width:440px;">Get the free 10-point STR automation checklist: the exact tasks worth automating first. Flowstead will email it over.</div>
+    <div class="panel call-panel" aria-label="Sample call, step by step">
+      <div class="panel-head">
+        <div><p class="panel-kicker">Inbound call · 3:07</p><h3 class="panel-title">Emma Lawson</h3></div>
+        <span class="chip chip-green"><span class="dot dot-green"></span>Resolved, no human needed</span>
       </div>
-      <!-- Checklist opt-in posts to the n8n workflow, which emails the checklist automatically. -->
-      <form action="https://professionalholidayhomes.app.n8n.cloud/webhook/flowstead-checklist" method="POST" style="display:flex;gap:10px;width:100%;flex-wrap:wrap;">
-        <input class="fs-input" type="email" name="email" placeholder="Your email" required style="flex:1;min-width:200px;">
-        <button class="fs-btn" type="submit" style="width:auto;flex:none;">Send me the checklist →</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- ============ FOOTER ============ -->
-  <footer style="background:#06100D;">
-    <div class="wrap footer-row" style="max-width:1360px;margin:0 auto;padding:30px 56px;display:flex;justify-content:space-between;align-items:center;border-top:1px solid rgba(236,245,240,0.10);">
-      <div style="display:flex;align-items:baseline;gap:1px;font-weight:800;font-size:16px;letter-spacing:-0.015em;color:#ECF5F0;"><span style="color:#1FE39B;">/</span><span>flowstead</span><span style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:9px;color:#7E9389;margin-left:4px;align-self:flex-start;">®</span></div>
-      <div style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:#5E7268;">© 2026 Flowstead · Built for property managers</div>
-    </div>
-  </footer>
-
-</div>
-
-  <!-- ============ COOKIE CONSENT BANNER (Consent Mode v2) ============ -->
-  <div id="fs-consent" style="display:none;position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#0A1712;border-top:1px solid rgba(31,227,155,0.30);padding:16px 20px;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;box-shadow:0 -8px 30px rgba(0,0,0,0.45);">
-    <div style="max-width:1360px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:16px;justify-content:space-between;">
-      <div style="font-size:13px;color:#9DB1A7;line-height:1.5;max-width:720px;">Flowstead uses cookies to measure site traffic and improve the experience. Accept to help us improve, or decline &mdash; the site works either way.</div>
-      <div style="display:flex;gap:10px;flex:none;">
-        <button id="fs-consent-decline" type="button" style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;color:#ECF5F0;background:transparent;border:1px solid rgba(236,245,240,0.28);padding:11px 18px;cursor:pointer;">Decline</button>
-        <button id="fs-consent-accept" type="button" style="font-family:ui-monospace,Menlo,'DejaVu Sans Mono',Consolas,monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;font-weight:700;color:#06100D;background:#1FE39B;border:none;padding:11px 18px;cursor:pointer;box-shadow:0 0 22px rgba(31,227,155,0.35);">Accept</button>
+      <ol class="timeline">
+        <li><span class="who">Caller</span><p>Hi, I'm hoping to book Bay View for mid June.</p></li>
+        <li><span class="who who-m">Maya</span><p>Of course. Can I take your name and the best number to call you back on?</p></li>
+        <li><span class="who">Caller</span><p>Emma Lawson, 07700 900123.</p></li>
+        <li><span class="who who-m">Maya</span><p>That's zero seven seven zero zero, nine zero zero one two three. Is that right?</p></li>
+        <li class="act"><span class="who who-a">Action</span><p>Booking enquiry logged · 12–19 Jun · 2 adults, 1 child</p></li>
+        <li class="act"><span class="who who-a">Action</span><p>Summary emailed to the team with the full transcript</p></li>
+      </ol>
+      <div class="sheet" aria-label="Google Sheet row created by the call">
+        <div class="sheet-bar">Seaview Stays · Demo calls</div>
+        <table>
+          <thead><tr><th>Intent</th><th>Guest</th><th>Property</th><th>Dates</th><th>Party</th></tr></thead>
+          <tbody><tr><td>Booking</td><td>Emma Lawson</td><td>Bay View</td><td>12–19 Jun</td><td>3</td></tr></tbody>
+        </table>
       </div>
     </div>
   </div>
-  <script>
-    (function () {
-      var el = document.getElementById('fs-consent');
-      var saved = null;
-      try { saved = localStorage.getItem('fs_consent'); } catch (e) {}
-      if (!saved) { el.style.display = 'block'; }
-      function choose(choice) {
-        try { localStorage.setItem('fs_consent', choice); } catch (e) {}
-        if (choice === 'granted' && typeof gtag === 'function') {
-          gtag('consent', 'update', { ad_storage: 'granted', analytics_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
-        }
-        el.style.display = 'none';
-      }
-      document.getElementById('fs-consent-accept').addEventListener('click', function () { choose('granted'); });
-      document.getElementById('fs-consent-decline').addEventListener('click', function () { choose('denied'); });
-    })();
-  </script>
+</section>
 
+<!-- RESULTS -->
+<section class="section tint" id="results">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Results</p>
+      <h2>Built and run for a real holiday-rental business.</h2>
+      <p class="sub">Four years inside an Australian holiday-rental manager, from customer service to operations analyst. Systems I designed, built and still look after. Results, not internals.</p>
+    </div>
+    <div class="case-grid">
+      <article class="card case">
+        <p class="tag-line">AI inbox assistant</p>
+        <h3>A third of the inbox handled before anyone logs in</h3>
+        <div class="ba"><div><small>Before</small><b>0%</b><span>every email by hand</span></div><span class="ba-arrow" aria-hidden="true">→</span><div><small>After</small><b>37–44%</b><span>closed or replied by AI</span></div></div>
+        <p class="case-foot">500+ AI replies sent and approved</p>
+      </article>
+      <article class="card case">
+        <p class="tag-line">Process automation</p>
+        <h3>Appraisals that took days now take minutes</h3>
+        <div class="ba"><div><small>Before</small><b>Days</b><span>built by hand</span></div><span class="ba-arrow" aria-hidden="true">→</span><div><small>After</small><b>25 hrs</b><span>back every week</span></div></div>
+        <p class="case-foot">Pulled from several systems automatically</p>
+      </article>
+      <article class="card case">
+        <p class="tag-line">Finance automation</p>
+        <h3>Trust-account receipting without the copy-paste</h3>
+        <div class="ba"><div><small>Before</small><b>Manual</b><span>matched by accounts staff</span></div><span class="ba-arrow" aria-hidden="true">→</span><div><small>After</small><b>2.5–5 hrs</b><span>saved a week</span></div></div>
+        <p class="case-foot">Fewer errors, faster month-end</p>
+      </article>
+      <article class="card case">
+        <p class="tag-line">Operations platform</p>
+        <h3>265 workflows, one tidy system</h3>
+        <div class="ba"><div><small>Before</small><b>Scattered</b><span>separate tools</span></div><span class="ba-arrow" aria-hidden="true">→</span><div><small>After</small><b>120</b><span>workflows running daily</span></div></div>
+        <p class="case-foot">Pricing guards, photo checks, owner drafts</p>
+      </article>
+    </div>
+    <!-- Testimonials slot: add 2–3 quotes here once clients approve them. -->
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section" id="calculator">
+  <div class="wrap calc-grid">
+    <div class="head head-left">
+      <p class="kicker">Time-back calculator</p>
+      <h2>What's the admin costing you?</h2>
+      <p class="sub">A rough guide. The free audit gives you real numbers for your business.</p>
+    </div>
+    <div class="card calc">
+      <label for="c-hours"><span>Hours a week on repetitive admin and replies</span><output id="o-hours">12</output></label>
+      <input id="c-hours" type="range" min="2" max="60" value="12">
+      <label for="c-rate"><span>What an hour of your or your staff's time is worth</span><output id="o-rate">£20</output></label>
+      <input id="c-rate" type="range" min="10" max="80" step="1" value="20">
+      <label for="c-share"><span>Share that's realistic to automate</span><output id="o-share">40%</output></label>
+      <input id="c-share" type="range" min="10" max="80" step="5" value="40">
+      <div class="calc-out" aria-live="polite">
+        <div><small>Back each week</small><b id="r-week">4.8 hrs</b></div>
+        <div><small>A year in time</small><b id="r-year">£4,992</b></div>
+        <div><small>Pays back a £299 build in</small><b id="r-pay">6 weeks</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="section tint" id="pricing">
+  <div class="wrap">
+    <div class="head">
+      <p class="kicker">Pricing</p>
+      <h2>Fixed prices. No surprise invoices.</h2>
+    </div>
+    <div class="tabs" role="tablist" aria-label="Packages">
+      <button role="tab" aria-selected="true" aria-controls="p-voice" id="t-voice">AI receptionist</button>
+      <button role="tab" aria-selected="false" aria-controls="p-mail" id="t-mail" tabindex="-1">AI inbox</button>
+      <button role="tab" aria-selected="false" aria-controls="p-n8n" id="t-n8n" tabindex="-1">n8n build or fix</button>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="p-voice" aria-labelledby="t-voice">
+      <div class="price-grid">
+        <article class="card price"><h3>Starter</h3><p class="amt">£149</p><p class="pd">Voice agent with your FAQs and greeting, call summaries by email.</p><ul><li>1 agent, 1 number</li><li>Up to 15 FAQs</li><li>5-day delivery</li></ul></article>
+        <article class="card price pick"><div class="pick-row"><h3>Standard</h3><span class="chip chip-dark">Most chosen</span></div><p class="amt">£299</p><p class="pd">Starter plus an n8n post-call pipeline to a sheet or CRM, and urgent-call alerts.</p><ul><li>Booking, maintenance &amp; urgent flows</li><li>Sheet or CRM logging</li><li>2 rounds of tuning</li></ul></article>
+        <article class="card price"><h3>Premium</h3><p class="amt">£449</p><p class="pd">Standard plus PMS or helpdesk hand-off and a month of tuning from real calls.</p><ul><li>PMS or helpdesk integration</li><li>30 days of call reviews</li><li>Video handover</li></ul></article>
+      </div>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="p-mail" aria-labelledby="t-mail" hidden>
+      <div class="price-grid">
+        <article class="card price"><h3>Starter</h3><p class="amt">£149</p><p class="pd">AI drafts replies to your top 10 guest questions for you to approve.</p><ul><li>Gmail or helpdesk</li><li>Your tone of voice</li><li>5-day delivery</li></ul></article>
+        <article class="card price pick"><div class="pick-row"><h3>Standard</h3><span class="chip chip-dark">Most chosen</span></div><p class="amt">£299</p><p class="pd">Auto-send for safe topics, auto-close, and hand-off to a person with context.</p><ul><li>Help Scout, Gmail or similar</li><li>Safety rules &amp; review log</li><li>2 rounds of tuning</li></ul></article>
+        <article class="card price"><h3>Premium</h3><p class="amt">£449</p><p class="pd">Standard plus booking data from your PMS, so replies know the stay.</p><ul><li>PMS lookups</li><li>Weekly accuracy report</li><li>30 days of tuning</li></ul></article>
+      </div>
+    </div>
+    <div class="tabpanel" role="tabpanel" id="p-n8n" aria-labelledby="t-n8n" hidden>
+      <div class="price-grid">
+        <article class="card price"><h3>Fix</h3><p class="amt">£99</p><p class="pd">Diagnose and fix one broken n8n workflow, with notes on what went wrong.</p><ul><li>1 workflow</li><li>48-hour turnaround</li><li>Error alerts added</li></ul></article>
+        <article class="card price pick"><div class="pick-row"><h3>Build</h3><span class="chip chip-dark">Most chosen</span></div><p class="amt">£199</p><p class="pd">One new workflow, up to 3 apps, tested and documented.</p><ul><li>Up to 3 integrations</li><li>Error handling</li><li>Handover doc</li></ul></article>
+        <article class="card price"><h3>System</h3><p class="amt">£349</p><p class="pd">A small connected system of up to 3 workflows, with monitoring.</p><ul><li>Up to 3 workflows</li><li>Monitoring &amp; alerts</li><li>Video walkthrough</li></ul></article>
+      </div>
+    </div>
+    <div class="extras">
+      <article class="card extra"><div><h3>Look-after plan</h3><p>Monitoring, fixes and one small improvement each month. Cancel any time.</p></div><p class="amt-sm">£250<small>/month</small></p></article>
+      <article class="card extra"><div><h3>PriceLabs setup &amp; guards</h3><p>Base, minimum and seasonal rules, plus a daily too-cheap alert.</p></div><p class="amt-sm"><small>from </small>£149</p></article>
+      <article class="card extra"><div><h3>Bigger projects</h3><p>Custom AI agents, dashboards and full-portfolio automation.</p></div><p class="amt-sm">Quoted</p></article>
+    </div>
+    <dl class="facts card">
+      <div><dt>Who it's for</dt><dd>Holiday-let and property managers, from a handful of properties to large portfolios</dd></div>
+      <div><dt>Where it starts</dt><dd>A free 20-minute audit</dd></div>
+      <div><dt>Who owns it</dt><dd>You. Built in your accounts, documented, handed over</dd></div>
+      <div><dt>Running costs</dt><dd>Phone minutes or n8n hosting, paid directly by you</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="wrap about-grid">
+    <figure class="about-photo card">
+      <img src="img/ian.jpg" width="560" height="620" loading="lazy" alt="Ian McDermott, founder of Flowstead">
+      <figcaption><b>Ian McDermott</b><span>Founder · UK-based, works from Asia</span></figcaption>
+    </figure>
+    <div>
+      <p class="kicker">About</p>
+      <h2>Hi, I'm Ian. I've worked the desk I automate.</h2>
+      <p class="sub">I spent four years inside a busy holiday-rental business: answering guests, then running admin and analysis, then leading operations systems, marketing and the website. I started by automating my own job, and ended up building the company's whole automation layer: AI email replies, a voice receptionist, pricing guards, photo checks and reporting.</p>
+      <p class="sub">Flowstead is how I bring that to other holiday-let and property managers. You work with me directly, from the audit to the handover, and I overlap with UK mornings and Australian afternoons.</p>
+      <ul class="chips"><li>n8n</li><li>AI agents &amp; MCP</li><li>Voice AI</li><li>Help Scout</li><li>PriceLabs</li><li>WordPress</li></ul>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section tint" id="faq">
+  <div class="wrap faq-grid">
+    <div class="head head-left"><p class="kicker">FAQ</p><h2>Good questions.</h2></div>
+    <div class="faq card">
+      <details><summary>Will an AI receptionist annoy my guests?</summary><p>It's built to be short and polite, to read details back, and never to guess at prices or availability. Anything it can't handle goes to you with a summary, so the guest doesn't repeat themselves.</p></details>
+      <details><summary>Do I need to change my software?</summary><p>Usually not. I build on top of what you already use: your PMS, helpdesk, Gmail, Google Sheets, Slack.</p></details>
+      <details><summary>Who owns the automations?</summary><p>You do. Everything is built in your own accounts, documented, and handed over with a walkthrough video.</p></details>
+      <details><summary>What about guest data and GDPR?</summary><p>Data stays in your systems. I use the minimum access needed, and nothing is shared between clients.</p></details>
+      <details><summary>Do you only work with holiday lets?</summary><p>That's my specialism, but the same systems suit letting agents, property managers, cleaners and other small service businesses.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- AUDIT -->
+<section class="section" id="audit">
+  <div class="wrap">
+    <div class="book card">
+      <div class="book-copy">
+        <p class="kicker">Free automation audit</p>
+        <h2>Get your three biggest time-savers, in writing.</h2>
+        <p class="sub">A 20-minute call, then a short written map of the three automations that would save you the most hours: which task, which tools, and the time back each week. Yours to keep either way.</p>
+        <ul class="checks"><li>No prep needed</li><li>No obligation, no hard sell</li><li>Fixed quote only if you want one</li></ul>
+      </div>
+      <div class="book-box" id="calendly-slot">
+        <div class="slot-preview">
+          <p class="panel-kicker">Free audit call</p>
+          <ul class="slot-facts"><li><b>20 minutes</b><span>Video call</span></li><li><b>Written map</b><span>Sent after the call</span></li></ul>
+        </div>
+        <button class="btn btn-accent" id="load-cal" type="button">Show available times</button>
+        <a class="link" href="https://calendly.com/thegingerbtc/30min" target="_blank" rel="noopener">Open Calendly in a new tab</a>
+        <a class="link" href="mailto:hello@flowstead.co.uk?subject=Free%20automation%20audit">Or email hello@flowstead.co.uk</a>
+      </div>
+    </div>
+
+    <div class="magnet card">
+      <div><h3>Not ready to talk?</h3><p>Get the free 10-point checklist: the holiday-let tasks worth automating first.</p></div>
+      <!-- Posts to Ian's OWN n8n (placeholder webhook, workflow not built yet). Never point this at an employer's instance. -->
+      <form id="checklist-form" action="https://flowstead.app.n8n.cloud/webhook/flowstead-checklist" method="POST">
+        <label class="sr" for="cl-email">Email address</label>
+        <input id="cl-email" type="email" name="email" placeholder="you@yourbusiness.co.uk" autocomplete="email" required>
+        <input type="text" name="company_website" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <button class="btn btn-dark" type="submit">Send me the checklist</button>
+        <p class="form-msg" id="cl-msg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="wrap footer-row">
+    <div><a class="logo" href="#top">Flowstead</a><p>AI receptionists and automations for holiday-let &amp; property managers.</p></div>
+    <ul><li><a href="#build">What I build</a></li><li><a href="#pricing">Pricing</a></li><li><a href="#maya">Maya demo</a></li><li><a href="mailto:hello@flowstead.co.uk">hello@flowstead.co.uk</a></li></ul>
+    <p class="copy">© 2026 Flowstead · Ian McDermott · United Kingdom</p>
+  </div>
+</footer>
+
+<div id="fs-consent" class="consent" hidden>
+  <p>Flowstead uses cookies to measure traffic. Accept to help improve the site, or decline. It works either way.</p>
+  <div><button type="button" id="fs-decline" class="btn btn-ghost btn-sm">Decline</button><button type="button" id="fs-accept" class="btn btn-dark btn-sm">Accept</button></div>
+</div>
+
+<script src="main.js" defer></script>
 </body>
 </html>
