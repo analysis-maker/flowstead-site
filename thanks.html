@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Thank you · Flowstead</title>
+<meta name="description" content="Order received."><meta name="robots" content="noindex">
+<link rel="canonical" href="https://flowstead.co.uk/thanks.html">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+<link rel="icon" href="favicon.ico" sizes="48x48">
+<link rel="apple-touch-icon" href="favicon-180x180.png">
+<meta name="theme-color" content="#F4F4F1">
+<link rel="preload" href="fonts/InterTight.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Google Consent Mode v2: denied until the visitor accepts (kept from the current site) -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent','default',{ad_storage:'denied',analytics_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',functionality_storage:'granted',security_storage:'granted',wait_for_update:500});
+  try{if(localStorage.getItem('fs_consent')==='granted'){gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});}}catch(e){}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0T3JKN5LSL"></script>
+<script>gtag('js',new Date());gtag('config','G-0T3JKN5LSL');gtag('config','AW-844127426');</script>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+<style>
+.pa{padding-top:clamp(28px,4vw,56px)}
+.pa h1{font-size:clamp(34px,4.4vw,56px);max-width:18ch}
+.pa-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:start;margin-top:28px}
+.pa-card{padding:clamp(20px,3vw,28px)}
+.pa-card h2{font-size:22px;max-width:none}
+.pa-card ul,.pa-card ol{margin:12px 0 0;padding-left:20px}
+.pa-card li{margin:8px 0;color:var(--ink-2)}
+.pa-price{font-size:clamp(40px,5vw,56px);font-weight:500;letter-spacing:-.03em;line-height:1;margin:8px 0 4px}
+.pa-price small{font-size:16px;color:var(--muted);font-weight:400;letter-spacing:0}
+.pa-buy{display:grid;gap:10px;margin-top:18px}
+.pa-note{color:var(--muted);font-size:15px;margin-top:12px;max-width:62em}
+.pa-faq{margin-top:16px}
+.pa-faq h3{font-size:18px;margin:20px 0 4px}
+.pa-faq p{margin:0;color:var(--ink-2)}
+@media (max-width:860px){.pa-grid{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav" id="top">
+  <div class="wrap nav-row">
+    <a class="logo" href="/" aria-label="Flowstead home">
+      <svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><rect width="26" height="26" rx="7" fill="#111"/><path d="M8 18.5V7.5h9M8 13h6.5" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round"/><circle cx="18.5" cy="18" r="2" fill="#0B7A55"/></svg>
+      Flowstead
+    </a>
+    <nav aria-label="Main">
+      <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">Menu</button>
+      <ul id="nav-links">
+        <li><a href="/#build">What I build</a></li>
+        <li><a href="/#maya">Maya demo</a></li>
+        <li><a href="/#results">Results</a></li>
+        <li><a href="/#pricing">Pricing</a></li>
+        <li><a href="/#about">About</a></li>
+        <li class="nav-cta-li"><a class="btn btn-dark btn-sm" href="/#audit">Book a free audit</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+<section class="section pa">
+  <div class="wrap">
+    <p class="kicker">Order received</p>
+    <h1>Thanks. Your audit is booked in.</h1>
+    <p class="sub">You'll get an email from hello@flowstead.co.uk shortly asking for your listing link and whether you use a pricing tool. Reply to that and the 3 working days start.</p>
+    <p class="pa-note">Nothing in your inbox within an hour? Check spam, or email hello@flowstead.co.uk.</p>
+  </div>
+</section>
+</main>
+<footer class="footer">
+  <div class="wrap footer-row">
+    <div><a class="logo" href="/">Flowstead</a><p>AI receptionists and automations for holiday-let &amp; property managers.</p></div>
+    <ul><li><a href="/#build">What I build</a></li><li><a href="/#pricing">Pricing</a></li><li><a href="/#maya">Maya demo</a></li><li><a href="time-leak-calculator.html">Time leak calculator</a></li><li><a href="pricing-audit.html">Pricing audit</a></li><li><a href="mailto:hello@flowstead.co.uk">hello@flowstead.co.uk</a></li><li><a href="privacy.html">Privacy</a></li></ul>
+    <p class="copy">© 2026 Flowstead · Ian McDermott · United Kingdom</p>
+  </div>
+</footer>
+<div id="fs-consent" class="consent" hidden>
+  <p>Flowstead uses cookies to measure traffic. Accept to help improve the site, or decline. It works either way.</p>
+  <div><button type="button" id="fs-decline" class="btn btn-ghost btn-sm">Decline</button><button type="button" id="fs-accept" class="btn btn-dark btn-sm">Accept</button></div>
+</div>
+
+<script>
+(function(){
+  var t=document.querySelector('.nav-toggle'), nav=document.getElementById('nav-links');
+  if(t&&nav){
+    t.addEventListener('click',function(){var o=nav.classList.toggle('open');t.setAttribute('aria-expanded',o?'true':'false')});
+    nav.addEventListener('click',function(e){if(e.target.tagName==='A'){nav.classList.remove('open');t.setAttribute('aria-expanded','false')}});
+  }
+  var q=new URLSearchParams(location.search), tx=q.get('session_id')||'';
+  var key='fs_conv_'+tx;
+  var done=false; try{done=!!(tx&&sessionStorage.getItem(key))}catch(e){}
+  if(!done&&typeof gtag==='function'){gtag('event','conversion',{send_to:'AW-844127426/HQPSCM3-5MocEMK5wZID',value:79,currency:'GBP',transaction_id:tx});gtag('event','purchase',{currency:'GBP',value:79,transaction_id:tx});try{sessionStorage.setItem(key,'1')}catch(e){}}
+  var c=document.getElementById('fs-consent'), saved=null;
+  try{saved=localStorage.getItem('fs_consent')}catch(e){}
+  if(c&&!saved)c.hidden=false;
+  function choose(v){try{localStorage.setItem('fs_consent',v)}catch(e){}if(v==='granted'&&typeof gtag==='function')gtag('consent','update',{ad_storage:'granted',analytics_storage:'granted',ad_user_data:'granted',ad_personalization:'granted'});if(c)c.hidden=true}
+  var accept=document.getElementById('fs-accept'), decline=document.getElementById('fs-decline');
+  if(accept)accept.addEventListener('click',function(){choose('granted')});
+  if(decline)decline.addEventListener('click',function(){choose('denied')});
+})();
+</script>
+</body>
+</html>
